@@ -46,10 +46,14 @@ medicos.push({
 });
 
 for(const medico of medicos){
-    console.log("Nombre del Medico:"+"\n"+medico.nombre+" Especialidad"+"\n"+ medico.Especialidad);
+    console.log("Nombre del Medico:"+"\n"+medico.nombre +"\n"+" Especialidad"+"\n"+ medico.Especialidad);
 
 
 }
+
+
+
+
 
 
 
@@ -93,7 +97,7 @@ function asociados() {
     for (let i=1; i < 3; i++) {
 
     if ((cualMedico === "cardiologia") || (cualMedico === "Cardiologia")) {
-        alert(" Turno N° "+i+" Nombre: "+ingresarNombre+"va a ser asistido por"+cardiologia);
+        alert(" Turno N° "+i+" Nombre: "+ingresarNombre+"va a ser asistido por"+ medicos.find(medico => medico.Especialidad));
     }
     else if ((cualMedico === "neurologo") || (cualMedico === "Neurologo")){
         alert(" Turno N° "+i+" Nombre: "+ingresarNombre+"va a ser asistido por"+neurologo);
