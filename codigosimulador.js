@@ -1,3 +1,58 @@
+const medicos=[
+    {       
+        nombre:"Mariano Bischoff",
+        Especialidad:"Cardiologia",
+        edad:58,
+        Titulo:"Hospital Cardiologico"
+    },
+
+
+    {
+        nombre:"Maricel Liendo",
+        Especialidad:"Neurologia",
+        edad:46,
+        Titulo:"UNC"
+
+    },
+
+
+    {
+        nombre:"Lara Bischoff",
+        Especialidad:"Dermatologia",
+        edad:31,
+        Titulo:"UNC"
+
+
+    },
+
+    {
+        nombre:"Julian Bischoff",
+        Especialidad:"Traumatologo",
+        edad:38,
+        Titulo:"Hospital Privado"
+
+
+    },
+
+];
+
+medicos.push({
+    nombre:"Sol Pucheta",
+    Especialidad:"Psiquiatria",
+    edad:34,
+    Titulo:"UNC"
+
+
+});
+
+for(const medico of medicos){
+    console.log("Nombre del Medico:"+"\n"+medico.nombre+" Especialidad"+"\n"+ medico.Especialidad);
+
+
+}
+
+
+
 
 let cardiologia = "mariano bischoff";
 let neurologo = "maricel liendo";
