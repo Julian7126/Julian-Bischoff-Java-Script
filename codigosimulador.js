@@ -1,7 +1,7 @@
 const medicos=[
     {       
         nombre:"Mariano Bischoff",
-        Especialidad:"Cardiologia",
+        Especialidad:"cardiologia",
         edad:58,
         Titulo:"Hospital Cardiologico"
     },
@@ -9,7 +9,7 @@ const medicos=[
 
     {
         nombre:"Maricel Liendo",
-        Especialidad:"Neurologia",
+        Especialidad:"neurologia",
         edad:46,
         Titulo:"UNC"
 
@@ -18,7 +18,7 @@ const medicos=[
 
     {
         nombre:"Lara Bischoff",
-        Especialidad:"Dermatologia",
+        Especialidad:"nermatologia",
         edad:31,
         Titulo:"UNC"
 
@@ -27,7 +27,7 @@ const medicos=[
 
     {
         nombre:"Julian Bischoff",
-        Especialidad:"Traumatologo",
+        Especialidad:"traumatologo",
         edad:38,
         Titulo:"Hospital Privado"
 
@@ -38,7 +38,7 @@ const medicos=[
 
 medicos.push({
     nombre:"Sol Pucheta",
-    Especialidad:"Psiquiatria",
+    Especialidad:"psiquiatria",
     edad:34,
     Titulo:"UNC"
 
@@ -92,16 +92,16 @@ function asociados() {
 
     if ((cualMedico === "cardiologia") || (cualMedico === "Cardiologia")) {
         const resultado = medicos.find(medico => medico.Especialidad === cualMedico);
-        alert(" Turno N° "+i+" Nombre: "+ingresarNombre+"va a ser asistido por"+ resultado.Especialidad);
+        alert(" Turno N° "+i+" Nombre: "+ingresarNombre+""+"va a ser asistido por"+""+ resultado);
     }
     else if ((cualMedico === "neurologo") || (cualMedico === "Neurologo")){
-        alert(" Turno N° "+i+" Nombre: "+ingresarNombre+"va a ser asistido por"+medicos.find(medico => medico.Especialidad));
+        alert(" Turno N° "+i+" Nombre: "+ingresarNombre+""+"va a ser asistido por"+""+medicos.find(medico => medico.Especialidad));
     }
     else if ((cualMedico === "dermatologo") || (cualMedico === "Dermatologo")){
-        alert(" Turno N° "+i+" Nombre: "+ingresarNombre+"va a ser asistido por"+ medicos.find(medico => medico.Especialidad));
+        alert(" Turno N° "+i+" Nombre: "+ingresarNombre+""+"va a ser asistido por"+""+ medicos.find(medico => medico.Especialidad));
     }
     else if ((cualMedico === "traumatologo") || (cualMedico === "Traumatologo")){
-        alert(" Turno N° "+i+" Nombre: "+ingresarNombre+"va a ser asistido por"+medicos.find(medico => medico.Especialidad));
+        alert(" Turno N° "+i+" Nombre: "+ingresarNombre+""+"va a ser asistido por"+""+medicos.find(medico => medico.Especialidad));
     }
     else{
         alert("No tenemos esa especialidad en esta CLINICA , Mil disculpas");        
