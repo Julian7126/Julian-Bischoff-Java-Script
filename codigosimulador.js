@@ -1,9 +1,9 @@
 class Medico{
-    constructor(nombre, especialidad, edad, Titulo) {
+    constructor(nombre, especialidad, edad, titulo) {
         this.nombre = nombre;
         this.especialidad = especialidad;
         this.edad = edad;
-        this.Titulo = Titulo;
+        this.titulo = titulo;
     }
 }
 const medicos = [];//array de medicos
@@ -51,10 +51,13 @@ console.log("Por ser Cliente tienes un "+ "" + descuentoEnBar + " "+ "de DESCUEN
 
 
 
-function buscarMedico(nombre,especialidad){
+function buscarMedico(medicos,especialidad){
    
-    const encontrado=medicos.find((med)=>med.especialidad === medicos);
+    const encontrado=medicos.find((med)=>med.especialidad == especialidad);
+    return encontrado;
 }
+
+function asociados (){
 
 
  for(let i=0;i<2;i++){
@@ -67,3 +70,37 @@ function buscarMedico(nombre,especialidad){
         }
  }
 
+}
+
+asociados();
+
+//  Div inyectado con dom , no funciona
+let contenedor= document.getElementsByClassName("Personal");
+contenedor.innerHTML= "<h2> Nuestro Medicos</h2> <p> Podras ver aqui a los especialistas a elegir</p>";
+
+
+// article inyectado con dom , no funciona
+
+let campoMedicos = document.getElementsByClassName("input1");
+let campoEspecialidad = document.getElementsByClassName("input2");
+
+campoMedicos.value ="5";
+
+
+// Tabla
+let tabla=document.createElement("table");
+let tablaBody=document.createElement("tbody");
+for(const meds of medicos){
+    tablaBody.innerHTML+=`
+        <tr>
+            <td>${medicos.nombre}</td>
+            <td>${medicos.especialidad}</td>
+            <td>${medicos.edad}</td>
+            <td>${medicos.titulo}</td>
+        </tr>       
+    `;
+}
+
+tabla.append(tabalaBody);
+let articuloTable=document.getElementsByClassName("table");
+articuloTable.append(tabla);
