@@ -21,26 +21,7 @@ for(const med of medicos){
 
 
 }
-
-let ingresarNombre=prompt("Ingresar Nombre y Apellido");
-let cliente =prompt("Sos cliente?").toLowerCase();
-
-function sosCliente() {
-    if (cliente == "si"){
-    
-    alert("GENIAL , cuentas con todos nuestro beneficios! VAS A ESPERAR MENOS TIEMPO PARA TU CONSULTA");
-    
-    
-    }else{
-    
-    alert("te recomendamos sacar nuestra credencial! tenes el link en nuestra pagina principal");
-    
-    }
-
-}
-
-sosCliente();
-
+// Aplicador de descuentos para el futurp
 
 function aplicarDescuentosEnBar(){
 
@@ -53,39 +34,23 @@ alert("Por ser Cliente tienes un "+ "" + descuentoEnBar + ""+ "de DESCUENTO!");
 aplicarDescuentosEnBar();
 
 
-
+// Funcion para buscar especialista en la class (array)- 
 function buscarMedico(Medico,especialidad){
    
     const encontrado=Medico.find((med)=>med.especialidad === especialidadEncontrada);
     return especialidadEncontrada;
 }
 
-function asociados (){
-
-
- for(let i=0;i<2;i++){
-        let especialidad=prompt("Que especialista quieres ver?").toLocaleLowerCase();
-        const medEncontrado = buscarMedico(medicos.especialidad);
-        if(medEncontrado==undefined){
-           alert("No tenemos esa especialidad en esta clinica!")
-        }else{
-            alert(" Turno N° "+i+" Nombre: "+ingresarNombre+""+"va a ser asistido por"+""+ medEncontrado);
-        }
- }
-
-}
-
-asociados();
 
 //  Div inyectado con dom , no funciona
-let contenedor= document.getElementsByClassName("Personal");
+let contenedor= document.getElementsById("Personal");
 contenedor.innerHTML= "<h2> Nuestro Medicos </h2> <p> Podras ver aqui a los especialistas a elegir</p>";
 
 
 // article inyectado con dom , no funciona
 
-let campoMedicos = document.getElementsByClassName("input1");
-let campoEspecialidad = document.getElementsByClassName("input2");
+let campoMedicos = document.getElementsById("contadorMedicos");
+let campoEspecialidad = document.getElementsById("contadorEspecialidad");
 
 campoMedicos.value ="5";
 
@@ -94,7 +59,7 @@ campoMedicos.value ="5";
 let tabla=document.createElement("table");
 tabla.className="table table-dark table-striped";
 let tablaBody=document.createElement("tbody");
-for(const meds of medicos){
+for(const meds of Medico){
     tablaBody.innerHTML+=`
         <tr>
             <td>${medicos.nombre}</td>
@@ -105,6 +70,58 @@ for(const meds of medicos){
     `;
 }
 
-tabla.append(tabalaBody);
-let articuloTable=document.getElementsByClassName("table");
+tabla.append(tablaBody);
+let articuloTable=document.getElementsById("table");
 articuloTable.append(tabla);
+
+
+
+
+// Eventos 
+
+
+// boton de turnero Online
+
+let botonTurnero = getElementsById("buttonTur");
+buttonTur.onclick=()=>{
+    function asociados (){
+        for(let i=0;i<2;i++){
+               let especialidad=prompt("Que especialista quieres ver?").toLocaleLowerCase();
+               const medEncontrado = buscarMedico(medicos.especialidad);
+               if(medEncontrado==undefined){
+                  alert("No tenemos esa especialidad en esta clinica!")
+               }else{
+                   alert(" Turno N° "+i+" Nombre: "+ingresarNombre+""+"va a ser asistido por"+""+ medEncontrado);
+               }
+        }
+       
+       }
+       
+       asociados();      
+}
+
+// boton para preguntar si es cliente
+
+let botonCliente = getElementById("buttonCli");
+
+buttonCli.onClick=()=>{
+
+    let cliente =prompt("Sos cliente?").toLowerCase();
+
+function sosCliente() {
+            if (cliente == "si"){
+    
+                alert("GENIAL , cuentas con todos nuestro beneficios! VAS A ESPERAR MENOS TIEMPO PARA TU CONSULTA");
+    
+    
+                }else{
+    
+                alert("te recomendamos sacar nuestra credencial! tenes el link en nuestra pagina principal");
+    
+                }
+
+                }
+
+sosCliente();
+
+}

@@ -6,29 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link ref="stylesheet" href="./estilos.css/style.css">
+    
+    
     <title> TURNERO SANATORIO BISCHOFF</title>
 </head>
+
+<!-- Aca comienza el Body -->
 <body id="body">
 <nav>
-    <h1 class="turnoaqui"> SACA UN TURNO AQUI </h1>
-        <h2 class="cliente"> Si tenes cliente nuestro?</h2>
-                 <p class="p1">Acordate que teniendo nuestra credencial , obtenes beneficio! desde menos tiempo de espera hasta descuentos en nuestro Bar y Restaurante</p>
-        <h2 class="nocliente"> Si necesitas ser cliente, selecciona aqui</h2> 
+   
+   
+   
+    <!-- TURNERO ONLINE -->
+   <div class="container text-center py-5">
+        <h1 id="titulo" class="display-3 py-5"> SACA UN TURNO AQUI </h1>
+                <button id="buttonTur" type="button" class="btn btn-primary btn-lg"> Turnero Online </button>
+    </div> 
+   
+   
+   
+   
+   
+    <!-- Pregunta si ya es cliente -->
+    <div class="container text-center py-5">
+        <h2 id="cliente" class="display-3 py-5"> SOS CLIENTE NUESTRO?</h2>
+        <button id="buttonCli" type="button" class="btn btn-primary btn-lg"> Click aca! </button>
+                 <p class="p1">Acordate que teniendo nuestra credencial , obtenes beneficio! desde menos tiempo de espera hasta descuentos en nuestro Bar y Restaurante! </p>
+    </div>
+    
+   
+   
+   
+   
+    <!-- PARA PODER SER CLIENTE -->
+    <div class="container text-center py-5">
+        <h2 id="serCliente" class="display-3 py-5"> QUERES SER CLIENTE?- ACA ABAJO! </h2> 
+        <button id="buttonCli" type="button" class="btn btn-primary btn-lg"> CLIENTES </button>
+        
+    </div>
+    
 
 
+
+
+
+     <!--Medicos-->
      <article>
         <label> MEDICOS : </label>
-            <input class="input1" type="number" placeholder="aqui cantidad de medicos">
+            <input id="contadorMedicos" type="number" placeholder="aqui cantidad de medicos">
         <label> ESPECIALIDADES :  </label>
-            <input class="input2" type="number" placeholder="aqui cantidad de especialidades">
+            <input id="ContadorEspecialidad" type="number" placeholder="aqui cantidad de especialidades">
     </article>     
+    <!-- Personal -->
+    <div id="Personal"></div>
 
-    <div class="Personal"></div>
-
-
-    <article class="table">
-        <table class="table table-dark table-striped">
-         </table>   
+    <!-- Tabla  -->
+    <article id="table">
+        
     </article>
 
 
