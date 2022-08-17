@@ -25,10 +25,11 @@ for(const med of medicos){
 let ingresarNombre=prompt("Ingresar Nombre y Apellido");
 let cliente =prompt("Sos cliente?").toLowerCase();
 
-function sosCliente(){
-    if (cliente = "si") {
+function sosCliente() {
+    if (cliente == "si"){
     
     alert("GENIAL , cuentas con todos nuestro beneficios! VAS A ESPERAR MENOS TIEMPO PARA TU CONSULTA");
+    
     
     }else{
     
@@ -38,30 +39,32 @@ function sosCliente(){
 
 }
 
-sosCliente()
+sosCliente();
 
 
 function aplicarDescuentosEnBar(){
 
 let descuentoEnBar= 10%
 
-console.log("Por ser Cliente tienes un "+ "" + descuentoEnBar + " "+ "de DESCUENTO!");
+alert("Por ser Cliente tienes un "+ "" + descuentoEnBar + ""+ "de DESCUENTO!");
 
 }
 
+aplicarDescuentosEnBar();
 
 
-function buscarMedico(medicos,especialidad){
+
+function buscarMedico(Medico,especialidad){
    
-    const encontrado=medicos.find((med)=>med.especialidad == especialidad);
-    return encontrado;
+    const encontrado=Medico.find((med)=>med.especialidad === especialidadEncontrada);
+    return especialidadEncontrada;
 }
 
 function asociados (){
 
 
  for(let i=0;i<2;i++){
-        let especialidad=prompt("Que especialista quieres ver?").toLocaleLowerCase();//especialidad queda en minuscula si o si
+        let especialidad=prompt("Que especialista quieres ver?").toLocaleLowerCase();
         const medEncontrado = buscarMedico(medicos.especialidad);
         if(medEncontrado==undefined){
            alert("No tenemos esa especialidad en esta clinica!")
@@ -76,7 +79,7 @@ asociados();
 
 //  Div inyectado con dom , no funciona
 let contenedor= document.getElementsByClassName("Personal");
-contenedor.innerHTML= "<h2> Nuestro Medicos</h2> <p> Podras ver aqui a los especialistas a elegir</p>";
+contenedor.innerHTML= "<h2> Nuestro Medicos </h2> <p> Podras ver aqui a los especialistas a elegir</p>";
 
 
 // article inyectado con dom , no funciona
@@ -89,6 +92,7 @@ campoMedicos.value ="5";
 
 // Tabla
 let tabla=document.createElement("table");
+tabla.className="table table-dark table-striped";
 let tablaBody=document.createElement("tbody");
 for(const meds of medicos){
     tablaBody.innerHTML+=`
