@@ -1,3 +1,4 @@
+
 class Medico{
     constructor(nombre, especialidad, edad, titulo) {
         this.nombre = nombre;
@@ -23,34 +24,35 @@ for(const med of medicos){
 }
 // Aplicador de descuentos para el futurp
 
-function aplicarDescuentosEnBar(){
+// function aplicarDescuentosEnBar(){
 
-let descuentoEnBar= 10%
+// let descuentoEnBar= 10%
 
-alert("Por ser Cliente tienes un "+ "" + descuentoEnBar + ""+ "de DESCUENTO!");
+// alert("Por ser Cliente tienes un "+ "" + descuentoEnBar + ""+ "de DESCUENTO!");
 
-}
+// }
 
-aplicarDescuentosEnBar();
+// aplicarDescuentosEnBar();
 
 
 // Funcion para buscar especialista en la class (array)- 
-function buscarMedico(Medico,especialidad){
+function buscarMedico(medicos,especialidad){
    
-    const encontrado=Medico.find((med)=>med.especialidad === especialidadEncontrada);
+    const encontrado=medicos.find((med)=>med.especialidad === especialidad);
     return especialidadEncontrada;
 }
 
 
+
 //  Div inyectado con dom , no funciona
-let contenedor= document.getElementsById("Personal");
+let contenedor = document.getElementById("personal");
 contenedor.innerHTML= "<h2> Nuestro Medicos </h2> <p> Podras ver aqui a los especialistas a elegir</p>";
 
 
 // article inyectado con dom , no funciona
 
-let campoMedicos = document.getElementsById("contadorMedicos");
-let campoEspecialidad = document.getElementsById("contadorEspecialidad");
+let campoMedicos = document.getElementById("contadorMedicos");
+let campoEspecialidad = document.getElementById("contadorEspecialidad");
 
 campoMedicos.value ="5";
 
@@ -59,7 +61,7 @@ campoMedicos.value ="5";
 let tabla=document.createElement("table");
 tabla.className="table table-dark table-striped";
 let tablaBody=document.createElement("tbody");
-for(const meds of Medico){
+for(const meds of medicos){
     tablaBody.innerHTML+=`
         <tr>
             <td>${medicos.nombre}</td>
@@ -71,7 +73,7 @@ for(const meds of Medico){
 }
 
 tabla.append(tablaBody);
-let articuloTable=document.getElementsById("table");
+let articuloTable=document.getElementById("table");
 articuloTable.append(tabla);
 
 
@@ -82,12 +84,12 @@ articuloTable.append(tabla);
 
 // boton de turnero Online
 
-let botonTurnero = getElementsById("buttonTur");
+let botonTurnero = document.getElementById("buttonTur");
 buttonTur.onclick=()=>{
     function asociados (){
         for(let i=0;i<2;i++){
-               let especialidad=prompt("Que especialista quieres ver?").toLocaleLowerCase();
-               const medEncontrado = buscarMedico(medicos.especialidad);
+               let especialidad=prompt("Que especialista quieres ver?").toLowerCase();
+               const medEncontrado = buscarMedico(especialidadEncontrada);
                if(medEncontrado==undefined){
                   alert("No tenemos esa especialidad en esta clinica!")
                }else{
@@ -102,7 +104,7 @@ buttonTur.onclick=()=>{
 
 // boton para preguntar si es cliente
 
-let botonCliente = getElementById("buttonCli");
+let botonCliente = document.getElementById("buttonCli");
 
 buttonCli.onClick=()=>{
 
