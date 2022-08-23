@@ -15,6 +15,7 @@ medicos.push(new Medico("Julian Bischoff","traumatologo", 38, "Hospital Privado"
 medicos.push(new Medico("Sol Pucheta","psiquiatria", 35, "UNC"));
 console.table(medicos);
 
+const enJSON  = JSON.stringify(medicos);
 
 
 for(const med of medicos){
@@ -91,7 +92,8 @@ buttonTur.onclick=()=>{
                let especialidad=prompt("Que especialista quieres ver?").toLowerCase();
                const medEncontrado = buscarMedico(especialidadEncontrada);
                if(medEncontrado==undefined){
-                  alert("No tenemos esa especialidad en esta clinica!")
+                let contenedor = document.getElementById("TurneroOnline");
+                    contenedor.innerHTML= "<h2>No tenemos esa especialidad en esta clinica!</h2>";
                }else{
                    alert(" Turno N° "+i+" Nombre: "+ingresarNombre+""+"va a ser asistido por"+""+ medEncontrado);
                }
@@ -108,22 +110,51 @@ let botonCliente = document.getElementById("buttonCli");
 
 buttonCli.onClick=()=>{
 
-    let cliente =prompt("Sos cliente?").toLowerCase();
-
-function sosCliente() {
-            if (cliente == "si"){
-    
-                alert("GENIAL , cuentas con todos nuestro beneficios! VAS A ESPERAR MENOS TIEMPO PARA TU CONSULTA");
-    
-    
-                }else{
-    
-                alert("te recomendamos sacar nuestra credencial! tenes el link en nuestra pagina principal");
-    
+    function sosCliente() { 
+        let cliente =prompt("Sos cliente?").toLowerCase();
+        function sosCliente() {
+     if (cliente == "si"){
+                for (let i = 0; i < localStorage.length; i++) {
+                    let clave = localStorage.key(i);
+                    console.log("Clave: "+ clave);
+                    console.log("Valor: "+ localStorage.getItem(clave));
                 }
 
-                }
+                    let contenedor = document.getElementById("VerificarCliente");
+                    contenedor.innerHTML= "<h2> GENIAL , cuentas con todos nuestro beneficios! VAS A ESPERAR MENOS TIEMPO PARA TU CONSULTA </h2>";
+             
 
-sosCliente();
+    
+     }else{
+                    let contenedor = document.getElementById("VerificarCliente")               
+    
+                    contenedor.innerHTML= "<h2>te recomendamos sacar nuestra credencial! tenes el link en nuestra pagina principal </h2>";
+    
+            }
 
+    
+    
+            sosCliente();
+
+        }
+    }
 }
+
+
+// Storage
+const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
+guardarLocal("todosLosMedicos", JSON.stringify(medicos));
+
+
+
+localStorage.setItem(`1`,`Franco Luzi`);
+localStorage.setItem(`2`,`Valentina Moyano`);
+localStorage.setItem(`3`,`Alfredo Lopez`);
+localStorage.setItem(`4`,`Matias Morelli`);
+localStorage.setItem(`5`,`Francisco Theiler`);
+localStorage.setItem(`6`,`Tomas Bergero`);
+
+
+
+
+
