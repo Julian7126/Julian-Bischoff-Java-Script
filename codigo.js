@@ -37,9 +37,11 @@ for(const med of medicos){
 
 
 // Funcion para buscar especialista en la class (array)- 
+    let especialidadEncontrada=
+
 function buscarMedico(medicos,especialidad){
    
-    const encontrado=medicos.find((med)=>med.especialidad === especialidad);
+    const encontrado=medicos.find((med)=>med.especialidad == especialidad);
     return especialidadEncontrada;
 }
 
@@ -144,7 +146,6 @@ buttonCli.onClick=()=>{
 // Storage
 const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
 guardarLocal("todosLosMedicos", JSON.stringify(medicos));
-
 
 
 localStorage.setItem(`1`,`Franco Luzi`);
