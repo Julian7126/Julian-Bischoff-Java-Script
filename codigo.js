@@ -17,12 +17,10 @@ console.table(medicos);
 
 const enJSON  = JSON.stringify(medicos);
 
+const DateTime = luxon.DateTime;
+const inicio = DateTime.now();
+console.log(inicio.toString());
 
-for(const med of medicos){
-    console.log("Nombre del Medico:"+"\n"+ medicos.nombre +"\n"+" Especialidad"+"\n"+ medicos.Especialidad);
-
-
-}
 // Aplicador de descuentos para el futurp
 
 // function aplicarDescuentosEnBar(){
@@ -37,6 +35,38 @@ for(const med of medicos){
 
 
 // Funcion para buscar especialista en la class (array)- 
+
+let botonUsuario= document.getElementById("ingresarUsuario");
+ingresarUsuario.onClick=()=>{
+    Swal.fire({
+        title: 'Formulario de Login!',
+        html: `<input type="text" id="login" class="swal2-input" placeholder="Username">
+        <input type="password" id="password" class="swal2-input" placeholder="Password">`,
+        confirmButtonText: 'Ingresar',
+        focusConfirm: false,
+        preConfirm: () => {
+          const login = Swal.getPopup().querySelector('#login').value
+          const password = Swal.getPopup().querySelector('#password').value
+          if (!login || !password) {
+            Swal.showValidationMessage(`Ingresar Usuario y Contrasaseña`)
+          }
+          return { login: login, password: password }
+        }
+      }).then((result) => {
+        Swal.fire(`
+          Login: ${result.value.login}
+          Password: ${result.value.password}
+        `.trim())
+      });
+}      
+
+
+
+
+
+
+
+// ACA EMPIEZA TURNERO
     let especialidadEncontrada=
 
 function buscarMedico(medicos,especialidad){
@@ -58,6 +88,7 @@ let campoMedicos = document.getElementById("contadorMedicos");
 let campoEspecialidad = document.getElementById("contadorEspecialidad");
 
 campoMedicos.value ="5";
+campoEspecialidad="5";
 
 
 // Tabla
@@ -95,11 +126,11 @@ buttonTur.onclick=()=>{
                const medEncontrado = buscarMedico(especialidadEncontrada);
                if(medEncontrado==undefined){
                 let contenedor = document.getElementById("TurneroOnline");
-                    contenedor.innerHTML= "<h2>No tenemos esa especialidad en esta clinica!</h2>";
+                Swal.fire('No tenemos esa especialidad en este Sanatorio!');
                }else{
-                   alert(" Turno N° "+i+" Nombre: "+ingresarNombre+""+"va a ser asistido por"+""+ medEncontrado);
+                Swal.fire(" Turno N° "+i+" Nombre: "+ingresarNombre+""+"va a ser asistido por"+""+ medEncontrado);
                }
-        }
+          }
        
        }
        
@@ -114,33 +145,43 @@ buttonCli.onClick=()=>{
 
     function sosCliente() { 
         let cliente =prompt("Sos cliente?").toLowerCase();
-        function sosCliente() {
+        
      if (cliente == "si"){
-                for (let i = 0; i < localStorage.length; i++) {
-                    let clave = localStorage.key(i);
-                    console.log("Clave: "+ clave);
-                    console.log("Valor: "+ localStorage.getItem(clave));
-                }
+                for (let i = 0; i < localStorage.length; i++) 
+                
+                                            {
+                                                let clave = localStorage.key(i);
+                                                console.log("Clave: "+ clave);
+                                                console.log("Valor: "+ localStorage.getItem(clave));
+                                            }
 
                     let contenedor = document.getElementById("VerificarCliente");
                     contenedor.innerHTML= "<h2> GENIAL , cuentas con todos nuestro beneficios! VAS A ESPERAR MENOS TIEMPO PARA TU CONSULTA </h2>";
-             
-
-    
-     }else{
-                    let contenedor = document.getElementById("VerificarCliente")               
-    
-                    contenedor.innerHTML= "<h2>te recomendamos sacar nuestra credencial! tenes el link en nuestra pagina principal </h2>";
-    
+             }else{
+        Swal.fire({
+            title: '<strong>A sacar nuestra Credit! </strong>',
+            icon: 'info',
+            html:
+              'You can use <b>bold text</b>, ' +
+              '<a href="http://127.0.0.1:5500/index.html">links</a> ',
+            showCloseButton: true,
+            showCancelButton: true,
+            focusConfirm: false,
+            confirmButtonText:
+              '<i class="fa fa-thumbs-up"></i> Great!',
+            confirmButtonAriaLabel: 'Thumbs up, great!',
+            cancelButtonText:
+              '<i class="fa fa-thumbs-down"></i>',
+            cancelButtonAriaLabel: 'Thumbs down'
+             });
             }
 
-    
-    
-            sosCliente();
-
         }
+        sosCliente();
     }
-}
+    
+
+
 
 
 // Storage
